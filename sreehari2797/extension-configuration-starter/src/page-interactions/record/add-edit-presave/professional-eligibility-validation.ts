@@ -1,6 +1,6 @@
 /*
   This file has the same problems as 
-  https://github.com/johnsully83/extension-configuration-starter/blob/master/src/page-interactions/record/add-edit-presave/validate-number-of-submissions.ts
+  src/page-interactions/record/add-edit-presave/validate-number-of-submissions.ts
   
   e.g. we should be handling the returned Promise from 'getEligibility', and the URL for the query (passed into appBridge.httpGET) should have ?fields=candidate(customText1)
   
