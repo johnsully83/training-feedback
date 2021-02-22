@@ -1,0 +1,17 @@
+{
+  "name": "extension-configuration-starter",
+  "version": "0.0.0",
+  "description": "Starter Kit for Extension Configurations",
+  "scripts": {
+    "tslint": "tslint",
+    "lint": "npm run tslint -- \"src/**/*.ts\" --format verbose --type-check --project tsconfig.json",
+    "deploy": "node bin/build-and-upload.js prod",
+    "deploy:staging": "node bin/build-and-upload.js staging"
+  },
+  "dependencies": {
+    "@bullhorn/bullhorn-cli": "^2.2.6",
+    "rimraf": "^2.6.2",
+    "tslint": "~5.10.0",
+    "typescript": "~2.9.2"
+  }
+}
