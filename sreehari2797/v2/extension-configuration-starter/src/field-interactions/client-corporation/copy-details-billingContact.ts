@@ -5,7 +5,9 @@ const interaction: FieldInteraction = {
     sortOrder: 0,
     invokeOnInit: true,
     script: (API: FieldInteractionAPI) => {
-      
+      /*
+        john.sullivan - this looks good!  i believe this would work as designed!  Only issue is the wrong quotes for interpolation again.
+       */
       const myClient = {
 
         change: () => {
@@ -33,18 +35,17 @@ const interaction: FieldInteraction = {
               API.setValue('zip','');
               API.setValue('country','');
           }
-          
-          
- 
+
+
+
         },
-  
+
 
       };
-  
+
       return myClient.change();
-  
+
     },
   };
-  
+
   export default interaction;
-  

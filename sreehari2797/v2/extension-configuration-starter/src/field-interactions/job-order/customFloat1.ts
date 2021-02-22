@@ -5,45 +5,46 @@ const interaction: FieldInteraction = {
     sortOrder: 0,
     invokeOnInit: true,
     script: (API: FieldInteractionAPI) => {
-      
+      /*
+        john.sullivan - this looks good!  i believe this would work as designed!  Only issue is the wrong quotes for interpolation again.
+       */
       const myClient = {
-  
-        
-  
+
+
+
         init: () => {
 
           if(API.isEdit) {
-            API.hide('customFloat1');   
+            API.hide('customFloat1');
           }
-  
+
           else {
             myClient.disableField();
             return myClient.setInitialValue();
           }
         },
-  
+
         setInitialValue: () => {
           return API.appBridge.httpGET('/entity/JobOrder/${API.globals.userID}?fields=numOpenings').then(response => {
             if(response.data) {
               API.setValue('customFloat1',response.data.numOpenings);
             }
-  
+
             return Promise.resolve();
           });
         },
-  
+
         disableField: () => {
-          
+
             API.disable('customFloat1')
-          
+
         }
-  
+
       };
-  
+
       return myClient.init();
-  
+
     },
   };
-  
+
   export default interaction;
-  

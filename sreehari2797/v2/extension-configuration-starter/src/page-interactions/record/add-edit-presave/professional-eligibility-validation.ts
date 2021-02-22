@@ -5,11 +5,13 @@ const interaction: PageInteraction = {
     page: 'record',
     sortOrder: 0,
     script: (API: PageInteractionAPI, form) => {
-      
+      /*
+        john.sullivan - this looks good!  i believe this would work as designed!  Only issue is the wrong quotes for interpolation again.
+       */
         const myClient =  {
 
             init: () => {
-                
+
                 var userId = form.submissions.userid;
 
                 //var elig = myClient.getEligibility(userId);
@@ -29,11 +31,11 @@ const interaction: PageInteraction = {
                     return form;
                 });
 
-                
+
 
             },
 
-            
+
             getEligibility: (userId) => {
 
                 var eligibilty = API.appBridge.httpGET('/entity/JobSubmission/${userId}?fields=candidate(customText1)')
@@ -48,6 +50,5 @@ const interaction: PageInteraction = {
         }
     },
   };
-  
+
   export default interaction;
-  

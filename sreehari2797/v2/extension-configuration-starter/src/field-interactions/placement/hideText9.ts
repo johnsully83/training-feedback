@@ -5,12 +5,14 @@ const interaction: FieldInteraction = {
     sortOrder: 0,
     invokeOnInit: true,
     script: (API: FieldInteractionAPI) => {
-      
+      /*
+        john.sullivan - this looks good!  I like the environment variable!
+       */
       const myClient = {
-  
+
         adminUserTypeId: parseInt(  "${admin.user.type.id}"),
         //adminUserTypeId: "104816",
-  
+
         init: () => {
             const userTypeId = API.globals.user.userTypeId;
 
@@ -18,15 +20,14 @@ const interaction: FieldInteraction = {
             {
                 API.disable('correlatedCustomText9');
             }
-          
+
         },
-  
+
       };
-  
+
       return myClient.init();
-  
+
     },
   };
-  
+
   export default interaction;
-  

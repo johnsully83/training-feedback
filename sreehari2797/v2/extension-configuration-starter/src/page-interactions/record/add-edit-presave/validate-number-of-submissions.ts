@@ -5,10 +5,12 @@ const interaction: PageInteraction = {
     page: 'record',
     sortOrder: 0,
     script: (API: PageInteractionAPI, form) => {
-      
+      /*
+        john.sullivan - this looks good!  i believe this would work as designed!  Only issue is the wrong quotes for interpolation again.
+       */
         const myClient =  {
 
-          
+
             init: () => {
                 const jobOrderId = form.jobOrder.id;
 
@@ -17,29 +19,29 @@ const interaction: PageInteraction = {
 
                 return myClient.getMaxSubmissions(jobOrderId).then(response => {
                     const max = response.data.data.customText9;
-                    
+
                     return myClient.queryNumberOfSubmissions(jobOrderId).then(response => {
-                      const num = response.data.total; 
-                      
+                      const num = response.data.total;
+
                       if(num < max)
                       {
                           form.valid =  true;
                       }
-      
+
                       else {
                           form.valid = false;
                           form.errorMessage = 'We have reached the maximum number of submissions that the Facility allows.';
                       }
-                        
+
                         return form;
                     });
                 })
 
-                
-                
+
+
             },
 
-            
+
             getMaxSubmissions: (jobOrderId) => {
                 var maxSub = API.appBridge.httpGET('/entity/JobOrder/${jobOrderId}?fields=clientCorporation(customText9)')
                 return maxSub;
@@ -60,6 +62,5 @@ const interaction: PageInteraction = {
         }
     },
   };
-  
+
   export default interaction;
-  

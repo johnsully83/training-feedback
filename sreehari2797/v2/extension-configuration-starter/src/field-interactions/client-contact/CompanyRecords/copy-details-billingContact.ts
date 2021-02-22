@@ -5,7 +5,10 @@ const interaction: FieldInteraction = {
     sortOrder: 0,
     invokeOnInit: true,
     script: (API: FieldInteractionAPI) => {
-      
+      /*
+        john.sullivan - this looks good!  i believe this would work as designed!
+        Only issues are the wrong quotes for interpolation and httpGet instead of httpGET
+       */
       const myClient = {
 
         change: () => {
@@ -24,18 +27,17 @@ const interaction: FieldInteraction = {
               API.setValue('billingAddress','');
 
           }
-          
-          
- 
+
+
+
         },
-  
+
 
       };
-  
+
       return myClient.change();
-  
+
     },
   };
-  
+
   export default interaction;
-  
